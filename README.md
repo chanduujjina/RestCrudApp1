@@ -85,19 +85,7 @@ Example:
 
 ---
 
-# POST vs PATCH in REST
 
-## 🔹 Overview
-
-| Aspect | **POST** | **PATCH** |
-|--------|----------|-----------|
-| **Purpose** | Create a **new resource** | Partially **update an existing resource** |
-| **Idempotency** | **Not idempotent** – multiple calls may create multiple resources | **Idempotent (ideally)** – multiple calls with the same data result in the same update |
-| **When to use** | When adding a brand-new resource to the server | When modifying only certain fields of an existing resource |
-| **URI** | Generally on **collection URI** (e.g., `/api/employees`) | On a **specific resource URI** (e.g., `/api/employees/101`) |
-| **Behavior** | Creates a new entry in the collection | Applies a **partial modification** without replacing the whole object |
-
----
 
 # GET vs POST in REST
 
