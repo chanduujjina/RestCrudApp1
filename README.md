@@ -31,3 +31,13 @@
 
   - PATCH → Partially update resource
   - DELETE → Remove resource
+ 
+## Resources Identified by URI
+
+- Each resource has a unique URI (Uniform Resource Identifier)
+
+Example:
+
+/api/employees → list of employees
+
+/api/employees/101 → employee with ID 101
