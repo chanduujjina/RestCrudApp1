@@ -103,6 +103,75 @@ Example:
 
 ---
 
+# ✅ Best Practices for Designing REST APIs
 
+## 1. **Use Nouns for Resource URIs**
+- URIs should represent **resources**, not actions.
+- **Good**: `/api/employees/101`
+- **Bad**: `/api/getEmployee?id=101`
+
+---
+
+## 2. **Use Plural Nouns**
+- Use plural nouns for collections.
+- **Good**: `/api/employees`
+- **Bad**: `/api/employee`
+
+---
+
+## 3. **Use HTTP Methods Correctly**
+- `GET` → Retrieve data  
+- `POST` → Create a new resource  
+- `PUT` → Replace/update a resource  
+- `PATCH` → Partially update a resource  
+- `DELETE` → Remove a resource  
+
+---
+
+## 4. **Version Your API**
+- Use versioning to avoid breaking clients when changes occur.
+- **Example**:  
+  - `/api/v1/employees`  
+  - `/api/v2/employees`
+
+---
+
+## 5. **Use Meaningful Status Codes**
+- `200 OK` → Successful GET/PUT/PATCH/DELETE  
+- `201 Created` → Successful POST  
+- `204 No Content` → Successful DELETE/PUT (no response body)  
+- `400 Bad Request` → Invalid input  
+- `401 Unauthorized` → Authentication required  
+- `403 Forbidden` → Permission denied  
+- `404 Not Found` → Resource doesn’t exist  
+- `500 Internal Server Error` → Server failure  
+
+---
+
+## 6. **Support Filtering, Sorting & Pagination**
+- Use query parameters for searching & sorting.  
+  - `/api/employees?department=IT&sort=name&order=asc&page=2&limit=10`
+
+---
+
+## 7. **Use Consistent Naming & Conventions**
+- Snake_case ❌  
+- camelCase ❌  
+- kebab-case ✅ (preferred in URLs)
+- Example: `/api/employees/{employee-id}`
+
+---
+
+## 8. **Return Standardized Error Responses**
+Use a consistent error format:
+```json
+{
+  "timestamp": "2025-08-17T10:20:00Z",
+  "status": 404,
+  "error": "Not Found",
+  "message": "Employee not found",
+  "path": "/api/employees/999"
+}
+```
 
 
