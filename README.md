@@ -41,3 +41,18 @@ Example:
 /api/employees → list of employees
 
 /api/employees/101 → employee with ID 101
+
+
+## Representation of Resources
+
+- A resource can be represented in JSON, XML, or other formats.
+
+Example:
+```json
+{
+  "id": 101,
+  "name": "John Doe",
+  "department": "IT"
+}
+
+```
