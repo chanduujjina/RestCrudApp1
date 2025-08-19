@@ -56,3 +56,30 @@ Example:
 }
 
 ```
+
+# POST vs PUT in REST
+
+## 🔹 Overview
+
+| Aspect | **POST** | **PUT** |
+|--------|----------|---------|
+| **Purpose** | Create a **new resource** | Create **or update** a resource (idempotent) |
+| **Idempotency** | **Not idempotent** – calling multiple times creates multiple resources | **Idempotent** – calling multiple times produces the same result |
+| **When to use** | When the server should generate a new resource ID (like auto-increment) | When the client already knows the resource ID and wants to update/replace it |
+| **URI** | Generally on **collection URI** (e.g., `/api/employees`) | Generally on **specific resource URI** (e.g., `/api/employees/101`) |
+| **Behavior on Existing Resource** | Adds a new resource | Replaces existing resource (or creates if not present, depending on API design) |
+
+---
+
+## 🔹 Examples
+
+### 1. **POST**
+```http
+POST /api/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "department": "IT"
+}
+```
