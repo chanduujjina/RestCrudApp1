@@ -99,17 +99,19 @@ Example:
 
 ---
 
-# POST vs PATCH in REST
+# GET vs POST in REST
 
 ## 🔹 Overview
 
-| Aspect | **POST** | **PATCH** |
-|--------|----------|-----------|
-| **Purpose** | Create a **new resource** | Partially **update an existing resource** |
-| **Idempotency** | **Not idempotent** – multiple calls may create multiple resources | **Idempotent (ideally)** – multiple calls with the same data result in the same update |
-| **When to use** | When adding a brand-new resource to the server | When modifying only certain fields of an existing resource |
-| **URI** | Generally on **collection URI** (e.g., `/api/employees`) | On a **specific resource URI** (e.g., `/api/employees/101`) |
-| **Behavior** | Creates a new entry in the collection | Applies a **partial modification** without replacing the whole object |
+| Aspect | **GET** | **POST** |
+|--------|---------|----------|
+| **Purpose** | Retrieve **data** from the server (read-only) | Send data to the server to **create** or **process** something |
+| **Idempotency** | **Idempotent** – calling multiple times does not change server state | **Not idempotent** – multiple calls may create duplicate resources |
+| **Request Body** | Not allowed (or ignored) | Allowed (used to send data in body) |
+| **Parameters** | Data sent via **query string** (URL) or headers | Data sent via **request body** |
+| **Caching** | Responses are easily **cacheable** by browsers/CDNs | Responses are **not cached** (by default) |
+| **Security** | Less secure – parameters appear in URL (can be logged/bookmarked) | More secure – data sent in request body (not visible in URL) |
+| **Typical Use Case** | Fetching a resource (e.g., list of employees, user profile) | Submitting forms, creating a new record, uploading files |
 
 ---
 
