@@ -26,3 +26,36 @@
         return ResponseEntity.badRequest().body(error);
     }
 ```
+---
+| Annotation                          | Target Types                                  | Description                                          | Example                                       |
+| ----------------------------------- | --------------------------------------------- | ---------------------------------------------------- | --------------------------------------------- |
+| **@AssertFalse**                    | `Boolean`, `boolean`                          | Value must be `false`.                               | `@AssertFalse private boolean inactive;`      |
+| **@AssertTrue**                     | `Boolean`, `boolean`                          | Value must be `true`.                                | `@AssertTrue private boolean active;`         |
+| **@CreditCardNumber** *(Hibernate)* | `String`                                      | Must be a valid credit card number (Luhn check).     | `@CreditCardNumber private String card;`      |
+| **@Currency** *(Hibernate)*         | `String`                                      | Must be a valid ISO 4217 currency code.              | `@Currency private String currency;`          |
+| **@DecimalMax**                     | `BigDecimal`, `BigInteger`, numeric types     | Value ≤ max.                                         | `@DecimalMax("100.0")`                        |
+| **@DecimalMin**                     | `BigDecimal`, `BigInteger`, numeric types     | Value ≥ min.                                         | `@DecimalMin("10.0")`                         |
+| **@Digits**                         | `BigDecimal`, `BigInteger`, `String`, numeric | Must be number with `integer` and `fraction` limits. | `@Digits(integer = 5, fraction = 2)`          |
+| **@Email**                          | `String`                                      | Must be a valid email.                               | `@Email private String email;`                |
+| **@Future**                         | Date/Time                                     | Must be a future date.                               | `@Future private LocalDate expiry;`           |
+| **@FutureOrPresent**                | Date/Time                                     | Must be present or future date.                      | `@FutureOrPresent private LocalDate booking;` |
+| **@ISBN** *(Hibernate)*             | `String`                                      | Must be a valid ISBN.                                | `@ISBN private String bookCode;`              |
+| **@Length** *(Hibernate)*           | `String`                                      | String length between min/max.                       | `@Length(min=2,max=30)`                       |
+| **@Max**                            | numeric                                       | Value ≤ max.                                         | `@Max(100)`                                   |
+| **@Min**                            | numeric                                       | Value ≥ min.                                         | `@Min(18)`                                    |
+| **@Negative**                       | numeric                                       | Value < 0.                                           | `@Negative private int debt;`                 |
+| **@NegativeOrZero**                 | numeric                                       | Value ≤ 0.                                           | `@NegativeOrZero private int balance;`        |
+| **@NotBlank**                       | `String`                                      | Must not be null/empty/whitespace.                   | `@NotBlank private String username;`          |
+| **@NotEmpty**                       | `String`, `Collection`, `Map`, `Array`        | Must not be null or empty.                           | `@NotEmpty private List<String> tags;`        |
+| **@NotNull**                        | any                                           | Must not be null.                                    | `@NotNull private String id;`                 |
+| **@Null**                           | any                                           | Must be null.                                        | `@Null private String temp;`                  |
+| **@Past**                           | Date/Time                                     | Must be a past date.                                 | `@Past private LocalDate dob;`                |
+| **@PastOrPresent**                  | Date/Time                                     | Must be past or present date.                        | `@PastOrPresent private LocalDate created;`   |
+| **@Pattern**                        | `String`                                      | Must match regex.                                    | `@Pattern(regexp="\\d{10}")`                  |
+| **@Positive**                       | numeric                                       | Must be > 0.                                         | `@Positive private int count;`                |
+| **@PositiveOrZero**                 | numeric                                       | Must be ≥ 0.                                         | `@PositiveOrZero private int stock;`          |
+| **@Range** *(Hibernate)*            | numeric                                       | Must be between min/max.                             | `@Range(min=1,max=100)`                       |
+| **@Size**                           | `String`, `Collection`, `Map`, `Array`        | Size/length between min/max.                         | `@Size(min=2,max=10)`                         |
+| **@URL** *(Hibernate)*              | `String`                                      | Must be valid URL.                                   | `@URL private String website;`                |
+| **@UUID** *(Hibernate)*             | `String`                                      | Must be valid UUID.                                  | `@UUID private String uid;`                   |
+
