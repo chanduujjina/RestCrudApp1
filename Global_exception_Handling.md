@@ -59,3 +59,46 @@
 | **@URL** *(Hibernate)*              | `String`                                      | Must be valid URL.                                   | `@URL private String website;`                |
 | **@UUID** *(Hibernate)*             | `String`                                      | Must be valid UUID.                                  | `@UUID private String uid;`                   |
 
+---
+
+## 📝 Example DTO using Mixed Annotations
+
+```java
+public class UserDto {
+
+    @NotNull
+    private Long id;
+
+    @NotBlank
+    @Size(min = 2, max = 50)
+    private String name;
+
+    @Email
+    private String email;
+
+    @Pattern(regexp = "\\d{10}")
+    private String phone;
+
+    @Min(18) @Max(99)
+    private int age;
+
+    @Past
+    private LocalDate dob;
+
+    @Future
+    private LocalDate subscriptionExpiry;
+
+    @AssertTrue
+    private boolean acceptedTerms;
+}
+```
+
+---
+
+⚡ Quick summary:  
+- **Nullity** → `@NotNull`, `@NotEmpty`, `@NotBlank`  
+- **String** → `@Size`, `@Pattern`, `@Email`, `@Length`  
+- **Numbers** → `@Min`, `@Max`, `@Positive`, `@Digits`, `@Range`  
+- **Dates** → `@Past`, `@Future`, etc.  
+- **Booleans** → `@AssertTrue`, `@AssertFalse`  
+- **Hibernate extras** → `@URL`, `@CreditCardNumber`, `@UUID`, etc.  
