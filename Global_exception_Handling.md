@@ -101,4 +101,21 @@ public class UserDto {
 - **Numbers** → `@Min`, `@Max`, `@Positive`, `@Digits`, `@Range`  
 - **Dates** → `@Past`, `@Future`, etc.  
 - **Booleans** → `@AssertTrue`, `@AssertFalse`  
-- **Hibernate extras** → `@URL`, `@CreditCardNumber`, `@UUID`, etc.  
+- **Hibernate extras** → `@URL`, `@CreditCardNumber`, `@UUID`, etc.
+
+---
+## Common Exceptions You Should Handle
+
+
+| Exception                                 | When it Happens                                   | Example                     |
+| ----------------------------------------- | ------------------------------------------------- | --------------------------- |
+| `MethodArgumentNotValidException`         | DTO validation with `@Valid` fails                | `@NotNull` field missing    |
+| `ConstraintViolationException`            | `@RequestParam`, `@PathVariable` validation fails | `@Min(18)` on age           |
+| `MissingServletRequestParameterException` | Required `@RequestParam` is missing               | `?lastName` not provided    |
+| `MissingPathVariableException`            | Required `@PathVariable` missing                  | `/users/{id}` not provided  |
+| `HttpMessageNotReadableException`         | Invalid JSON / malformed request body             | Wrong date format           |
+| `HttpRequestMethodNotSupportedException`  | Wrong HTTP method used                            | `POST` instead of `GET`     |
+| `HttpMediaTypeNotSupportedException`      | Wrong `Content-Type`                              | Sending XML instead of JSON |
+| `DataIntegrityViolationException`         | DB constraint violation                           | Unique key / Not Null       |
+| `EntityNotFoundException`                 | JPA entity not found                              | `findById()` empty          |
+---
