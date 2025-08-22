@@ -1,4 +1,4 @@
-package com.demo.test;
+package com.demo.cc.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.demo.cc.dto.FileData;
+import com.demo.cc.dto.Sample;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.validation.Valid;

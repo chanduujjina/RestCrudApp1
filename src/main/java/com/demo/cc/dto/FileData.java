@@ -1,4 +1,4 @@
-package com.demo.test;
+package com.demo.cc.dto;
 
 public class FileData {
 

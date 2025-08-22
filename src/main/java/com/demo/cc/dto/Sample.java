@@ -1,4 +1,4 @@
-package com.demo.test;
+package com.demo.cc.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
