@@ -3,6 +3,7 @@ package com.demo.test;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hibernate.validator.internal.constraintvalidators.bv.PatternValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -47,5 +48,6 @@ public class CustomValidator {
         error.put("message", "Request parameter is missing or required");
         return ResponseEntity.badRequest().body(error);
     }
+	
 
 }
