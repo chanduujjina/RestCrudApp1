@@ -1,0 +1,35 @@
+## List of Media Types
+
+| Constant                             | Media Type Value                         |
+| ------------------------------------ | ---------------------------------------- |
+| **ALL**                              | `*/*`                                    |
+| **APPLICATION\_ATOM\_XML**           | `application/atom+xml`                   |
+| **APPLICATION\_CBOR**                | `application/cbor`                       |
+| **APPLICATION\_FORM\_URLENCODED**    | `application/x-www-form-urlencoded`      |
+| **APPLICATION\_GRAPHQL**             | `application/graphql+json`               |
+| **APPLICATION\_GRAPHQL\_RESPONSE**   | `application/graphql-response+json`      |
+| **APPLICATION\_JSON**                | `application/json`                       |
+| **APPLICATION\_JSON\_UTF8**          | `application/json;charset=UTF-8`         |
+| **APPLICATION\_NDJSON**              | `application/x-ndjson`                   |
+| **APPLICATION\_OCTET\_STREAM**       | `application/octet-stream`               |
+| **APPLICATION\_PDF**                 | `application/pdf`                        |
+| **APPLICATION\_PROBLEM\_JSON**       | `application/problem+json`               |
+| **APPLICATION\_PROBLEM\_JSON\_UTF8** | `application/problem+json;charset=UTF-8` |
+| **APPLICATION\_PROBLEM\_XML**        | `application/problem+xml`                |
+| **APPLICATION\_PROTOBUF**            | `application/x-protobuf`                 |
+| **APPLICATION\_RSS\_XML**            | `application/rss+xml`                    |
+| **APPLICATION\_STREAM\_JSON**        | `application/stream+json`                |
+| **APPLICATION\_XHTML\_XML**          | `application/xhtml+xml`                  |
+| **APPLICATION\_XML**                 | `application/xml`                        |
+| **APPLICATION\_YAML**                | `application/yaml`                       |
+| **IMAGE\_GIF**                       | `image/gif`                              |
+| **IMAGE\_JPEG**                      | `image/jpeg`                             |
+| **IMAGE\_PNG**                       | `image/png`                              |
+| **MULTIPART\_FORM\_DATA**            | `multipart/form-data`                    |
+| **MULTIPART\_MIXED**                 | `multipart/mixed`                        |
+| **MULTIPART\_RELATED**               | `multipart/related`                      |
+| **TEXT\_EVENT\_STREAM**              | `text/event-stream`                      |
+| **TEXT\_HTML**                       | `text/html`                              |
+| **TEXT\_MARKDOWN**                   | `text/markdown`                          |
+| **TEXT\_PLAIN**                      | `text/plain`                             |
+| **TEXT\_XML**                        | `text/xml`                               |

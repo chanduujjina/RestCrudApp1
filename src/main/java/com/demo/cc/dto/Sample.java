@@ -1,5 +1,9 @@
+
 package com.demo.test;
 import java.time.LocalDate;
+=======
+package com.demo.cc.dto;
+>>>>>>> 61e87b5efef41964ce7dec147a73351fe030757b:src/main/java/com/demo/cc/dto/Sample.java
 
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
