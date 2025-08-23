@@ -8,3 +8,11 @@ public interface UserMapper {
 }
 
   ```
+- @Mapping
+  ```java
+  @Mapper(componentModel = "spring")
+public interface UserMapper {
+    @Mapping(source = "fullName", target = "name")
+    UserDto toDto(User user);
+}
+```
