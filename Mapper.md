@@ -40,4 +40,13 @@ public interface UserMapper {
 
 ```
 
+### @InheritConfiguration -> Reuses mappings from another method.
+```java
+@Mapping(source = "fullName", target = "name")
+UserDto toDto(User user);
+
+@InheritConfiguration(name = "toDto")
+User toEntity(UserDto dto);
+```
+
 
