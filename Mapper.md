@@ -27,4 +27,17 @@ UserDto toDto(User user);
 
 ```
 
-### @InheritInverseConfiguration
+### @InheritInverseConfiguration -> Reverses mappings automatically
+```java
+@Mapper(componentModel = "spring")
+public interface UserMapper {
+    @Mapping(source = "fullName", target = "name")
+    UserDto toDto(User user);
+
+    @InheritInverseConfiguration
+    User toEntity(UserDto dto);
+}
+
+```
+
+
