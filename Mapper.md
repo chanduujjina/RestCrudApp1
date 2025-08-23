@@ -10,7 +10,7 @@ public interface UserMapper {
 ----
 - @Mapping
   
-  ```java
+  ``` java
   @Mapper(componentModel = "spring")
 public interface UserMapper {
     @Mapping(source = "fullName", target = "name")
