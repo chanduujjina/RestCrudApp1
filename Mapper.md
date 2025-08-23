@@ -7,7 +7,7 @@ public interface UserMapper {
     User toEntity(UserDto dto);
 }
  ```
-### @Mapping
+### @Mapping -> Maps fields between source and target.
   
   ``` java
   @Mapper(componentModel = "spring")
@@ -17,7 +17,7 @@ public interface UserMapper {
 }
 ```
 
-### @Mappings
+### @Mappings -> Group of multiple @Mapping.
 ```
 @Mappings({
     @Mapping(source = "fullName", target = "name"),
