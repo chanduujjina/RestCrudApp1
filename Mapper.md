@@ -1,5 +1,5 @@
 ## 🔹 Basic Mapping
-- @Mapper
+###  @Mapper
  ``` java
   @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -7,8 +7,7 @@ public interface UserMapper {
     User toEntity(UserDto dto);
 }
  ```
-----
-- @Mapping
+### @Mapping
   
   ``` java
   @Mapper(componentModel = "spring")
@@ -17,4 +16,4 @@ public interface UserMapper {
     UserDto toDto(User user);
 }
 ```
----
+
