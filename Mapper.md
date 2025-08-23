@@ -1,5 +1,5 @@
 ## 🔹 Basic Mapping
-###  @Mapper
+###  @Mapper -> Defines a mapper interface.
  ``` java
   @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -17,3 +17,14 @@ public interface UserMapper {
 }
 ```
 
+### @Mappings
+```
+@Mappings({
+    @Mapping(source = "fullName", target = "name"),
+    @Mapping(source = "birthDate", target = "dob")
+})
+UserDto toDto(User user);
+
+```
+
+### @InheritInverseConfiguration
