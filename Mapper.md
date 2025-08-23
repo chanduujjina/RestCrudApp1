@@ -9,6 +9,7 @@ public interface UserMapper {
 
   ```
 - @Mapping
+  
   ```java
   @Mapper(componentModel = "spring")
 public interface UserMapper {
