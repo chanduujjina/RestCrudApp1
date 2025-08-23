@@ -7,7 +7,7 @@ public interface UserMapper {
     User toEntity(UserDto dto);
 }
  ```
-
+----
 - @Mapping
   
   ```java
@@ -17,3 +17,4 @@ public interface UserMapper {
     UserDto toDto(User user);
 }
 ```
+---
