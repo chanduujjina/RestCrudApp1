@@ -105,4 +105,55 @@ UserDto toDto(User user);
 UserDto toDto(User user);
 ```
 
+# ⚙️ MapStruct Workflow in Spring Boot
+
+MapStruct is a **compile-time code generator** for mapping between **DTOs** and **Entities**.  
+Here’s how the workflow looks:
+
+---
+
+## 🔹 Workflow Steps
+
+1. **Define Mapper Interface**  
+   - You declare a `@Mapper` interface with methods like `toDto()` and `toEntity()`.
+
+2. **Compile-Time Code Generation**  
+   - MapStruct generates an **implementation class** (e.g., `UserMapperImpl`) during compilation.  
+   - This class contains the actual field-by-field mapping code.
+
+3. **Spring Integration**  
+   - If `@Mapper(componentModel = "spring")` is used, the generated implementation becomes a Spring Bean.  
+   - You can `@Autowired` it anywhere in your app.
+
+4. **Mapping Flow at Runtime**  
+   - **Service Layer** calls the Mapper.  
+   - **DTO → Entity**: Used before saving data into DB.  
+   - **Entity → DTO**: Used before returning API responses.  
+   - Custom logic can be added with `@BeforeMapping` and `@AfterMapping`.
+
+---
+
+## 🔹 MapStruct Workflow (Sequence Diagram)
+
+```mermaid
+sequenceDiagram
+    participant C as Client (API Request)
+    participant Ctrl as REST Controller
+    participant S as Service Layer
+    participant M as MapStruct Mapper
+    participant R as Repository (Spring Data JPA)
+    participant DB as MySQL Database
+
+    C->>Ctrl: Send DTO in HTTP Request
+    Ctrl->>S: Forward DTO
+    S->>M: Convert DTO to Entity
+    M-->>S: Return Entity
+    S->>R: Save Entity
+    R->>DB: Insert into Database
+    DB-->>R: Acknowledgement
+    R-->>S: Return Entity
+    S->>M: Convert Entity to DTO
+    M-->>S: Return DTO
+    S-->>Ctrl: Return DTO
+    Ctrl-->>C: Send HTTP Response
 
