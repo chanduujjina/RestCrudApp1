@@ -4,24 +4,23 @@
 flowchart TD
 
 %% Web Layer
-Client([Client]) -->|HTTP Request| Controller[REST Controller]
+Client([Client]) --> Controller[REST Controller]
 
 %% Global Exception Handler
-Controller -->|Throws Error| ExceptionHandler[@ControllerAdvice <br/> Global Exception Handling]
-ExceptionHandler -->|Return Error Response| Client
+Controller --> ExceptionHandler[Global Exception Handler (@ControllerAdvice)]
+ExceptionHandler --> Client
 
 %% DTO <-> Entity Mapping
-Controller -->|Calls Service| Service[Service Layer]
-Service -->|Uses MapStruct| Mapper[MapStruct <br/> (DTO ↔ Entity)]
+Controller --> Service[Service Layer]
+Service --> Mapper[MapStruct (DTO ↔ Entity)]
 
 %% Data Access
-Service -->|Calls Repository| Repository[Spring Data JPA Repository]
-Repository -->|Executes Queries| MySQL[(MySQL Database)]
+Service --> Repository[Spring Data JPA Repository]
+Repository --> MySQL[(MySQL Database)]
 MySQL --> Repository
 
 %% Responses
-Repository -->|Entity| Service
-Mapper -->|Convert Entity → DTO| Service
-Service -->|Return DTO| Controller
-Controller -->|HTTP Response (JSON/XML)| Client
-```
+Repository --> Service
+Mapper --> Service
+Service --> Controller
+Controller --> Client
