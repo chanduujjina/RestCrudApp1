@@ -1,21 +1,16 @@
 
-package com.demo.test;
-import java.time.LocalDate;
-=======
 package com.demo.cc.dto;
->>>>>>> 61e87b5efef41964ce7dec147a73351fe030757b:src/main/java/com/demo/cc/dto/Sample.java
+import java.time.LocalDate;
 
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 
 
 public class Sample {//request dto

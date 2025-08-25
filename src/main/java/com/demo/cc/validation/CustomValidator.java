@@ -36,8 +36,6 @@ public class CustomValidator {
 		Map<String,Object> map = new HashMap<>();
 		map.put("status", HttpStatus.BAD_REQUEST);
 		map.put("error", ex.getMessage());
-	    
-	    
 		return new ResponseEntity<>(map,HttpStatus.BAD_REQUEST);
 	}
 	
