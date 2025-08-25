@@ -1,5 +1,7 @@
 package com.demo.cc.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +20,29 @@ public class UserService {
 	private UserDao userDao;
 	
 	public UserDto saveUser(UserDto userDto) {
-		User user = userMapper.toDto(userDto);
+		User user = userMapper.toEntity(userDto);
 		
 		User saveUser = userDao.saveUser(user);
 		
-		return userMapper.toEntity(saveUser);
+		return userMapper.toDto(saveUser);
+	}
+	
+	public UserDto getUserById(Integer id) {
+		Optional<User> optional = userDao.getUserById(id);
+		UserDto userDto = null;
+		if (optional.isPresent()) {
+			 userDto = userMapper.toDto(optional.get());
+		}
+		return userDto;
+	}
+
+	public UserDto getUserByName(String name) {
+		User userByName = userDao.getUserByName(name);
+		UserDto userDto = null;
+		if (userByName != null) {
+			 userDto = userMapper.toDto(userByName);
+		}
+		return userDto;
 	}
 
 }
