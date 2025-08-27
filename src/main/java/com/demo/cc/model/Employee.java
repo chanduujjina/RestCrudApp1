@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -43,8 +44,8 @@ public class Employee {
 	@OneToMany(mappedBy = "employee",targetEntity = Address.class,cascade = CascadeType.ALL,orphanRemoval = true)//transaction table
 	private List<Address> addresses;
 	
-	@OneToOne
-	@JoinColumn(name = "dept_id")
+	@ManyToOne
+	@JoinColumn(name = "dept_id", nullable = false)
 	private Department department;//master table
 	
 	

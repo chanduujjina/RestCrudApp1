@@ -1,5 +1,7 @@
 package com.demo.cc.mapper;
 
+import java.util.Arrays;
+
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -25,6 +27,8 @@ public interface EmployeeMapper {
 			if (employee.getAddresses() != null && !employee.getAddresses().isEmpty()) {
 				employee.getAddresses().stream().forEach(addr -> addr.setEmployee(employee));
 			}
+			
+			
 			
 		}
 	}
