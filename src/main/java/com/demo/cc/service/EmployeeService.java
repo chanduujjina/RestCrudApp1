@@ -1,5 +1,7 @@
 package com.demo.cc.service;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,7 @@ public class EmployeeService {
 		Department department = departmentRepository.findByName(employeeDto.getDeptName());
 		if (null != department) {
 			employee.setDepartment(department);
+			department.setEmployees(Arrays.asList(employee));
 		}
 		dao.saveEmployee(employee);
 	}
