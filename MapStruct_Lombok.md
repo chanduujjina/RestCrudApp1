@@ -48,3 +48,24 @@
     </plugins>
 </build>
 ```
+---
+
+# 📘 Lombok Annotations Summary
+
+| Annotation           | Description                                                                 | Example Snippet                                                                 |
+|----------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `@Getter`            | Generates getter methods for all fields                                     | `@Getter private String name;`                                                  |
+| `@Setter`            | Generates setter methods for all fields                                     | `@Setter private int age;`                                                      |
+| `@ToString`          | Generates `toString()` method                                                | `@ToString public class User { ... }`                                           |
+| `@EqualsAndHashCode` | Generates `equals()` and `hashCode()` methods                               | `@EqualsAndHashCode public class User { ... }`                                  |
+| `@NoArgsConstructor` | Creates a no-arg constructor                                                  | `@NoArgsConstructor public class User { ... }`                                  |
+| `@AllArgsConstructor`| Creates a constructor with all fields                                        | `@AllArgsConstructor public class User { ... }`                                 |
+| `@RequiredArgsConstructor` | Constructor for final / `@NonNull` fields                         | `@RequiredArgsConstructor public class User { ... }`                            |
+| `@Data`              | Combines `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, and `@RequiredArgsConstructor` | `@Data public class User { ... }`                          |
+| `@Value`             | Immutable version of `@Data` (all fields final)                             | `@Value public class User { ... }`                                              |
+| `@Builder`           | Implements Builder pattern                                                   | `User.builder().name("John").age(30).build();`                                  |
+| `@SneakyThrows`      | Bypass declaring checked exceptions                                          | `@SneakyThrows public void read() { Files.readAllLines(path); }`               |
+| `@NonNull`           | Null check for parameters                                                    | `@NonNull private String name;`                                                 |
+| `@Slf4j`             | Creates `log` field using Slf4j                                              | `log.info("Hello");`                                                            |
+| `@Cleanup`           | Calls `.close()` automatically on resources
+
