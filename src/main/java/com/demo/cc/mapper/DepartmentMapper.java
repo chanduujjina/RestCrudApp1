@@ -10,6 +10,6 @@ public interface DepartmentMapper {
 	
 	Department toEntity(DepartmentDto departmentDto);
 	
-	
+	DepartmentDto todto(Department department);
 
 }

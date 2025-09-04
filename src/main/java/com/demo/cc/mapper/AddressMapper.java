@@ -8,4 +8,6 @@ import com.demo.cc.model.Address;
 @Mapper(componentModel = "spring")
 public interface AddressMapper {
 	Address toEntity(AddressDto addressDto);
+	
+	AddressDto toDto(Address address);
 }

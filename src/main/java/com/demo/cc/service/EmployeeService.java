@@ -1,6 +1,8 @@
 package com.demo.cc.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.demo.cc.dao.DepartmentRepository;
 import com.demo.cc.dao.EmployeeDao;
 import com.demo.cc.dto.EmployeeDto;
+import com.demo.cc.dto.SearchCritria;
 import com.demo.cc.mapper.EmployeeMapper;
 import com.demo.cc.model.Department;
 import com.demo.cc.model.Employee;
@@ -24,6 +27,8 @@ public class EmployeeService {
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	
+	
+	
 	public void saveEmployee(EmployeeDto employeeDto) {
 		Employee employee = employeeMapper.toEntity(employeeDto);
 		
@@ -33,6 +38,27 @@ public class EmployeeService {
 			department.setEmployees(Arrays.asList(employee));
 		}
 		dao.saveEmployee(employee);
+	}
+
+	public EmployeeDto getEmployeeByNameAndGender(String name,String gender) {
+		
+		Employee employee = dao.getEmployeeByNameAndemail(name, gender);
+		
+		EmployeeDto employeeDto = employeeMapper.toDto(employee);
+		return employeeDto;
+	}
+	
+	public List<EmployeeDto> getEmployeesByAttributes(SearchCritria searchCritria){
+		
+		List<Employee> employeeByAttributes = dao.getEmployeeByAttributes(searchCritria);
+		
+		List<EmployeeDto> employeeDtos = new ArrayList<>();
+		for (Employee employee : employeeByAttributes) {
+			EmployeeDto employeeDto = employeeMapper.toDto(employee);
+			employeeDtos.add(employeeDto);
+		}
+		
+		return employeeDtos;
 	}
 
 }
