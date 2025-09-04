@@ -174,4 +174,43 @@ Use a consistent error format:
 }
 ```
 
+---
+
+# 🌐 Spring Boot REST API Annotations Cheat Sheet
+
+A complete reference of commonly used annotations in Spring Boot for building RESTful applications.
+
+| Annotation                | Category              | Description                                                                 | Example Usage                                                |
+|---------------------------|-----------------------|-----------------------------------------------------------------------------|---------------------------------------------------------------|
+| `@SpringBootApplication`  | Configuration         | Main entry point; combines `@Configuration`, `@EnableAutoConfiguration`, `@ComponentScan` | `@SpringBootApplication public class App { ... }`           |
+| `@RestController`         | Controller            | Marks class as REST controller; combines `@Controller` + `@ResponseBody`   | `@RestController public class UserController { ... }`        |
+| `@Controller`             | Controller            | Marks class as a web controller                                            | `@Controller public class WebController { ... }`             |
+| `@RequestMapping`         | Request Mapping       | Maps HTTP requests to handler methods or controller classes                | `@RequestMapping("/users")`                                  |
+| `@GetMapping`             | Request Mapping       | Shortcut for `@RequestMapping(method = RequestMethod.GET)`                 | `@GetMapping("/users")`                                      |
+| `@PostMapping`            | Request Mapping       | Shortcut for `@RequestMapping(method = RequestMethod.POST)`                | `@PostMapping("/users")`                                     |
+| `@PutMapping`             | Request Mapping       | Shortcut for `@RequestMapping(method = RequestMethod.PUT)`                 | `@PutMapping("/users/{id}")`                                 |
+| `@DeleteMapping`          | Request Mapping       | Shortcut for `@RequestMapping(method = RequestMethod.DELETE)`              | `@DeleteMapping("/users/{id}")`                              |
+| `@PatchMapping`           | Request Mapping       | Shortcut for `@RequestMapping(method = RequestMethod.PATCH)`               | `@PatchMapping("/users/{id}")`                               |
+| `@RequestParam`           | Request Input         | Binds query parameters to method parameters                                | `@RequestParam String name`                                  |
+| `@PathVariable`           | Request Input         | Binds URI template variables to method parameters                          | `@PathVariable Long id`                                      |
+| `@RequestBody`            | Request Input         | Binds request JSON body to Java object                                     | `@RequestBody User user`                                     |
+| `@ResponseBody`           | Response              | Returns object as JSON/XML in HTTP response body                           | `@ResponseBody User getUser()`                               |
+| `@ResponseStatus`         | Response              | Specifies HTTP status code for response                                    | `@ResponseStatus(HttpStatus.CREATED)`                        |
+| `@CrossOrigin`            | CORS                  | Enables Cross-Origin Resource Sharing (CORS)                               | `@CrossOrigin(origins = "*")`                                |
+| `@Autowired`              | Dependency Injection  | Injects dependencies automatically                                         | `@Autowired private UserService userService;`                |
+| `@Qualifier`              | Dependency Injection  | Specifies which bean to inject when multiple candidates exist              | `@Qualifier("userServiceImpl")`                              |
+| `@Value`                  | Configuration         | Injects values from properties file                                        | `@Value("${app.name}") private String appName;`              |
+| `@Configuration`          | Configuration         | Marks class as a source of bean definitions                                | `@Configuration public class AppConfig { ... }`              |
+| `@Bean`                   | Configuration         | Declares a bean managed by Spring container                                | `@Bean public RestTemplate restTemplate() { ... }`           |
+| `@Component`              | Component Scan        | Marks a class as a Spring-managed component                                | `@Component public class MyComponent { ... }`                |
+| `@Service`                | Component Scan        | Marks a class as a service layer component                                 | `@Service public class UserService { ... }`                  |
+| `@Repository`            | Component Scan        | Marks a class as DAO layer component                                       | `@Repository public interface UserRepository extends JpaRepository...` |
+| `@EnableAutoConfiguration`| Configuration         | Enables auto-configuration of Spring context                               | Usually used in `@SpringBootApplication`                     |
+| `@ComponentScan`          | Configuration         | Scans for components in specified package                                  | `@ComponentScan("com.example")`                              |
+| `@Valid` / `@Validated`   | Validation            | Enables JSR-303/JSR-380 validation on request bodies or method parameters  | `@Valid @RequestBody User user`                              |
+| `@ExceptionHandler`       | Error Handling        | Handles specific exceptions in controller                                  | `@ExceptionHandler(RuntimeException.class)`                  |
+| `@ControllerAdvice`       | Error Handling        | Global exception handling for controllers                                  | `@ControllerAdvice public class GlobalExceptionHandler {}`   |
+| `@EnableWebMvc`           | Configuration         | Enables Spring MVC specific configurations (used with Spring Boot less often) | `@EnableWebMvc`                                           |
+
+
 
