@@ -32,5 +32,7 @@ public interface EmployeeMapper {
 			
 		}
 	}
+	
+	EmployeeDto toDto(Employee employee);
 
 }

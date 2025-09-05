@@ -9,4 +9,6 @@ import com.demo.cc.model.PassportDetails;
 public interface PassportMapper {
 
 	PassportDetails toEntity(PassportDetailsDto passportDetailsDto);
+	
+	PassportDetailsDto toDto(PassportDetails passportDetails);
 }

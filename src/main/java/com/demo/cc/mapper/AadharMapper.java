@@ -9,5 +9,7 @@ import com.demo.cc.model.AaadharDetails;
 public interface AadharMapper {
 	
 	AaadharDetails toEntity(AaadharDetailsDto aaadharDetailsDto);
+	
+	AaadharDetailsDto toDto(AaadharDetails aaadharDetails);
 
 }
