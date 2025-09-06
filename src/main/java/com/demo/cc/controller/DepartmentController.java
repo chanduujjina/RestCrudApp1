@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.cc.dto.DepartmentDto;
+import com.demo.cc.model.Department;
 import com.demo.cc.service.DepartmentService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,12 +22,12 @@ import lombok.extern.slf4j.Slf4j;
 public class DepartmentController {
 	
 	@Autowired
-	private DepartmentService departmentService;
+	private DepartmentService departmentService;//mock
 	
 	@PostMapping
 	public ResponseEntity<String> saveDepartmentDetails(@RequestBody List<DepartmentDto> departmentDtos){
 		try {
-			departmentService.saveDeptdetails(departmentDtos);
+			List<Department> saveDeptdetails = departmentService.saveDeptdetails(departmentDtos);//stub
 			return new ResponseEntity<>("Department details saved sucessfully", HttpStatus.CREATED);
 		} catch (Exception e) {
 			log.error("error while saving into db",e.getMessage());

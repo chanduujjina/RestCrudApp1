@@ -13,8 +13,8 @@ public class DepartmentDao {
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	
-	public void saveDeptDetails(List<Department> deptList) {
-		departmentRepository.saveAll(deptList);
+	public List<Department> saveDeptDetails(List<Department> deptList) {
+		return departmentRepository.saveAll(deptList);
 	}
 	
 	

@@ -20,7 +20,7 @@ public class DepartmentService {
 	@Autowired
 	private DepartmentMapper departmentMapper;
 	
-	public void saveDeptdetails(List<DepartmentDto> deptList) {
+	public List<Department> saveDeptdetails(List<DepartmentDto> deptList) {
 		
 		List<Department> deptdbList = new ArrayList<>();
 		
@@ -29,7 +29,10 @@ public class DepartmentService {
 			deptdbList.add(entity);
 		}
 		
-		departmentDao.saveDeptDetails(deptdbList);
+		return departmentDao.saveDeptDetails(deptdbList);
+		
+		
+		 
 	}
 
 
