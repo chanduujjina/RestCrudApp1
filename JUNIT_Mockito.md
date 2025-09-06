@@ -51,3 +51,12 @@
 | `verifyNoMoreInteractions(mock)`  | `verifyNoMoreInteractions(repo)`    |
 | `assertThat(value)` (AssertJ)     | `assertThat(list).hasSize(3)`       |
 ---
+## ✅ Other Variants
+| Method                        | Description                              |
+| ----------------------------- | ---------------------------------------- |
+| `verify(mock, times(n))`      | Verifies method called exactly `n` times |
+| `verify(mock, never())`       | Method was **never** called              |
+| `verify(mock, atLeastOnce())` | Method was called **at least once**      |
+| `verify(mock, atLeast(n))`    | Method called **at least** `n` times     |
+| `verify(mock, atMost(n))`     | Method called **at most** `n` times      |
+
