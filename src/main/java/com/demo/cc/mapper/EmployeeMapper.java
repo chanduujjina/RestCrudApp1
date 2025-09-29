@@ -20,7 +20,7 @@ public interface EmployeeMapper {
 			if (employee.getPassportDetails() != null) {
 			employee.getPassportDetails().setEmployee(employee);
 			}
-			if (employee.getAadharDSetails() != null) {
+			if (employee.getAadharDSet() != null) {
 				employee.getAadharDSetails().setEmployee(employee);
 			}
 			
